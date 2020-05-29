@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using smnShopSolution.Data.Configurations;
 using smnShopSolution.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace smnShopSolution.Data.EF
 {
-    class smnShopDbContext : DbContext
+    public class smnShopDbContext : DbContext
     {
         public smnShopDbContext(DbContextOptions options) : base(options)
         {
@@ -62,4 +63,4 @@ namespace smnShopSolution.Data.EF
 
     }
 }
-}
+

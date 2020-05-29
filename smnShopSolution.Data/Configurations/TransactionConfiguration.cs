@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using smnShopSolution.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Transactions;
+
 
 namespace smnShopSolution.Data.Configurations
 {
