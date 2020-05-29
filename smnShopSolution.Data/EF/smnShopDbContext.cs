@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using smnShopSolution.Data.Configurations;
 using smnShopSolution.Data.Entities;
+using smnShopSolution.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,7 @@ namespace smnShopSolution.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // cofigure using Fluent API
             modelBuilder.ApplyConfiguration(new CartConfiguration());
 
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
@@ -30,6 +32,9 @@ namespace smnShopSolution.Data.EF
             modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+
+            // Data seeding
+            modelBuilder.Seed();
 
             //base.OnModelCreating(modelBuilder);
         }
