@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using smnShopSolution.Data.EF;
 
 namespace smnShopSolution.Data.Migrations
 {
     [DbContext(typeof(smnShopDbContext))]
-    partial class smnShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200602154330_AddProductImageTable")]
+    partial class AddProductImageTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,7 +182,7 @@ namespace smnShopSolution.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "a075f03c-4be9-4013-9749-25d2b47428a9",
+                            ConcurrencyStamp = "897eecba-662d-4d76-b813-1bb63504af08",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -257,7 +259,7 @@ namespace smnShopSolution.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b20d7942-bbd7-468f-8a38-01de8b1ddb96",
+                            ConcurrencyStamp = "4922b344-87ff-407f-8283-a16bffc9ffcb",
                             Dob = new DateTime(1998, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sungmino2266@gmail.com",
                             EmailConfirmed = true,
@@ -266,7 +268,7 @@ namespace smnShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "sungmino2266@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOrbuTmqQNWdrhjk46aJwVqEgkTMIhkKZoCvh7Ed8AySsDpcqR3UhXsYrOO3t9rWDg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPYKj5MNAiqL3N9tub464OYJvse9H+YKcUIFXt0OIYzDrDVmoT1xsy44W5tyfq+PzA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -614,7 +616,7 @@ namespace smnShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2020, 6, 3, 23, 3, 13, 471, DateTimeKind.Local).AddTicks(1833),
+                            DateCreated = new DateTime(2020, 6, 2, 22, 43, 29, 101, DateTimeKind.Local).AddTicks(5479),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -638,8 +640,8 @@ namespace smnShopSolution.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("FileSize")
-                        .HasColumnType("bigint");
+                    b.Property<int>("FileSize")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
                         .IsRequired()
