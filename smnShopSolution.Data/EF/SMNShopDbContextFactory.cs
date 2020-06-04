@@ -17,7 +17,7 @@ namespace smnShopSolution.Data.EF
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("eShopSolutionDb");
+            var connectionString = configuration.GetConnectionString("smnShopSolutionDb");
 
             var optionsBuilder = new DbContextOptionsBuilder<smnShopDbContext>();
             optionsBuilder.UseSqlServer(connectionString);
