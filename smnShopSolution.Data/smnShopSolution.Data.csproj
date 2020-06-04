@@ -19,4 +19,9 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\smnShopSolutio.Utilities\smnShopSolutio.Utilities.csproj" />
+    <ProjectReference Include="..\smnShopSolution.ViewModels\smnShopSolution.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
