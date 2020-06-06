@@ -9,9 +9,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using smnShopSolutio.Utilities.Exceptions;
 using smnShopSolution.Application.Catalog.Products;
+using smnShopSolution.Application.Common;
 using smnShopSolution.Data.EF;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace smnShopSolution.RestFullApi
 {
@@ -32,7 +35,13 @@ namespace smnShopSolution.RestFullApi
 
             // Declare DI
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<IStorageService, FileStorageService>();
             services.AddControllersWithViews();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "smnShopSolution", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +63,14 @@ namespace smnShopSolution.RestFullApi
             app.UseRouting();
 
             app.UseAuthorization();
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "smnShopSolution V1");
+
+            });
 
             app.UseEndpoints(endpoints =>
             {

@@ -20,7 +20,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.1.4" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
   </ItemGroup>
 
 
@@ -29,6 +31,11 @@
     <ProjectReference Include="..\smnShopSolution.Application\smnShopSolution.Application.csproj" />
     <ProjectReference Include="..\smnShopSolution.Data\smnShopSolution.Data.csproj" />
     <ProjectReference Include="..\smnShopSolution.ViewModels\smnShopSolution.ViewModels.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\user-content\" />
   </ItemGroup>
 
 </Project>
