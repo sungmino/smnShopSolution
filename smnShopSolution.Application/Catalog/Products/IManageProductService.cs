@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using smnShopSolution.Application.Catalog.Products.Dtos;
+using smnShopSolution.ViewModels.Catalog.ProductImages;
 using smnShopSolution.ViewModels.Catalog.Products;
 using smnShopSolution.ViewModels.Common;
 using System;
@@ -27,12 +28,13 @@ namespace smnShopSolution.Application.Catalog.Products
 
         Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
 
-        Task<int> AddImages(int productId, List<IFormFile> files);
+        Task<int> AddImage(int productId, ProductImageCreateRequest request);
+        Task<ProductImageViewModel> GetImageById(int imageId);
 
-        Task<int> RemoveImages(int imageId);
+        Task<int> RemoveImage(int imageId);
 
-        Task<int> UpdateImage(int imageId, string caption, bool isDefault);
+        Task<int> UpdateImage(int imageId, ProductImageUpdateRequest request);
 
-        Task<List<ProductImageViewModel>> GetListImage(int productId);
+        Task<List<ProductImageViewModel>> GetListImages(int productId);
     }
 }
