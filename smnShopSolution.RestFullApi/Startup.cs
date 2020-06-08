@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +14,9 @@ using Microsoft.OpenApi.Models;
 using smnShopSolutio.Utilities.Exceptions;
 using smnShopSolution.Application.Catalog.Products;
 using smnShopSolution.Application.Common;
+using smnShopSolution.Application.System.Users;
 using smnShopSolution.Data.EF;
+using smnShopSolution.Data.Entities;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace smnShopSolution.RestFullApi
@@ -33,10 +36,18 @@ namespace smnShopSolution.RestFullApi
             services.AddDbContext<smnShopDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
 
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<smnShopDbContext>()
+                .AddDefaultTokenProviders();
+
             // Declare DI
             services.AddTransient<IPublicProductService, PublicProductService>();
             services.AddTransient<IManageProductService, ManageProductService>();
             services.AddTransient<IStorageService, FileStorageService>();
+            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<IUserService, UserService>();
             services.AddControllersWithViews();
             services.AddSwaggerGen(c =>
             {
