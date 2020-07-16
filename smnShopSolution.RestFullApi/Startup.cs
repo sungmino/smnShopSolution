@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +21,7 @@ using smnShopSolution.Application.Common;
 using smnShopSolution.Application.System.Users;
 using smnShopSolution.Data.EF;
 using smnShopSolution.Data.Entities;
+using smnShopSolution.ViewModels.System.Users;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace smnShopSolution.RestFullApi
@@ -50,7 +53,10 @@ namespace smnShopSolution.RestFullApi
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<IUserService, UserService>();
-            services.AddControllers();
+           /* services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>(); // validation Login
+            services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>(); // validation Register*/
+            services.AddControllers()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>()); // using FluentValidation, validator tat ca cac validation trong project
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "smnShopSolution", Version = "v1" });
