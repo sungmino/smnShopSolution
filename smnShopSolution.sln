@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smnShopSolutio.Utilities", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smnShopSolution.ViewModels", "smnShopSolution.ViewModels\smnShopSolution.ViewModels.csproj", "{FDD1FF7C-C2E8-45EB-97A1-114A5AD43341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smnShopSolution.RestFullApi", "smnShopSolution.RestFullApi\smnShopSolution.RestFullApi.csproj", "{52B2FAA6-E498-4292-A71D-4EA340CAA2DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smnShopSolution.RestFullApi", "smnShopSolution.RestFullApi\smnShopSolution.RestFullApi.csproj", "{52B2FAA6-E498-4292-A71D-4EA340CAA2DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smnShopSolution.AdminApp", "smnShopSolution.AdminApp\smnShopSolution.AdminApp.csproj", "{D5A2E836-43A4-4CD2-86BD-9DBFE8FB4486}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{52B2FAA6-E498-4292-A71D-4EA340CAA2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52B2FAA6-E498-4292-A71D-4EA340CAA2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52B2FAA6-E498-4292-A71D-4EA340CAA2DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5A2E836-43A4-4CD2-86BD-9DBFE8FB4486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5A2E836-43A4-4CD2-86BD-9DBFE8FB4486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5A2E836-43A4-4CD2-86BD-9DBFE8FB4486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5A2E836-43A4-4CD2-86BD-9DBFE8FB4486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
